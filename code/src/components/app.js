@@ -8,7 +8,7 @@ class App extends React.Component {
     this.state = {
       incVat: 0,
       exVat: 0,
-      vatRate: 25
+      vatRate: 0
     }
   }
 
@@ -22,7 +22,7 @@ handleIncVat = event => {
 handleExVat = event => {
   this.setState({
     exVat: parseInt(event.target.value, 10),
-    IncVat: exVatToIncVat(this.state.vatRate, parseInt(event.target.value, 10))
+    incVat: exVatToIncVat(this.state.vatRate, parseInt(event.target.value, 10))
   })
 }
 
@@ -30,7 +30,7 @@ handleVatRate = event => {
   this.setState({
     vatRate: parseInt(event.target.value, 10),
     exVat: incVatToExtVat(this.state.vatRate, parseInt(event.target.value, 10)),
-    IncVat: exVatToIncVat(this.state.vatRate, parseInt(event.target.value, 10))
+    incVat: exVatToIncVat(this.state.vatRate, parseInt(event.target.value, 10))
 
   })
 }
